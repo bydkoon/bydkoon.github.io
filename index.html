@@ -1,4 +1,666 @@
 ---
-layout: home
-author_profile: true
+layout: none
+title: 김도훈 - 백엔드 개발자
+description: 백엔드 개발자 김도훈의 이력서
 ---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="백엔드 개발자 김도훈의 이력서">
+  <title>김도훈 · 백엔드 개발자</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --text-soft: #78716c;
+      --border: #e7e5e4;
+      --accent: #0f766e;
+      --accent-soft: #e2e8f0;
+      --accent-text: #334155;
+      --tag-bg: #f5f5f4;
+      --tag-text: #44403c;
+      --timeline: #d6d3d1;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0a09;
+        --surface: #1c1917;
+        --text: #fafaf9;
+        --text-muted: #d6d3d1;
+        --text-soft: #a8a29e;
+        --border: #292524;
+        --accent: #2dd4bf;
+        --accent-soft: #334155;
+        --accent-text: #e2e8f0;
+        --tag-bg: #292524;
+        --tag-text: #d6d3d1;
+        --timeline: #44403c;
+        --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    /* Header */
+    .header {
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent-text) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .role {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item:hover { color: var(--accent); }
+
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .intro {
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+      line-height: 1.85;
+    }
+
+    .intro p { margin-bottom: 14px; }
+    .intro p:last-child { margin-bottom: 0; }
+    .intro strong { color: var(--text); font-weight: 600; }
+
+    /* Section */
+    .section { margin-bottom: 56px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-meta {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    /* Company */
+    .company {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .company:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .company-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company-name {
+      font-size: 1.375rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .company-period {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    .company-meta {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Project */
+    .project {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 28px;
+    }
+
+    .project:last-child { margin-bottom: 0; }
+
+    .project::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: -28px;
+      width: 2px;
+      background: var(--timeline);
+    }
+
+    .project:last-child::before { bottom: 8px; }
+
+    .project::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--bg);
+    }
+
+    .project-title {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-period {
+      font-size: 0.8125rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .project-points {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-points li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .project-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 4px;
+      height: 4px;
+      background: var(--text-soft);
+      border-radius: 50%;
+    }
+
+    .project-points li.highlight {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .project-points li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .tech-stack {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Education */
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .education-item:last-child { border-bottom: none; }
+
+    .education-school {
+      font-size: 1.0625rem;
+      font-weight: 600;
+    }
+
+    .education-major {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .education-period {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .skill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.875rem;
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; color: black; }
+      .container { padding: 20px; max-width: 100%; }
+      .company { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+      .company:hover { transform: none; }
+      .name { color: #0f766e; -webkit-text-fill-color: #0f766e; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .container { padding: 40px 20px 64px; }
+      .name { font-size: 2.25rem; }
+      .company { padding: 24px 20px; }
+      .section-title { font-size: 1.25rem; }
+      .company-name { font-size: 1.1875rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">김도훈</h1>
+      <p class="role">백엔드 개발자 · 경력 10년 2개월</p>
+
+      <div class="contact">
+        <a href="mailto:pansew@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          pansew@gmail.com
+        </a>
+        <a href="tel:+821054016315" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +82 10-5401-6315
+        </a>
+        <span class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Republic of Korea
+        </span>
+      </div>
+
+      <div class="intro">
+        <p>안녕하세요. 서비스 아키텍처 설계와 운영을 주도해온 백엔드 개발자 <strong>김도훈</strong>입니다.</p>
+        <p>메신저 플랫폼과 커머스 서비스를 구축하며, 기술 선택부터 시스템 구조까지 문제 해결 관점에서 의사결정을 내려왔습니다. <strong>Java/Spring Boot, Python</strong> 기반으로 채팅, 인증, 알림 등 다양한 서비스의 백엔드를 개발했으며, <strong>Kafka, Redis, RabbitMQ</strong> 등을 활용한 메시징 기반 비동기 처리 시스템과 분산 아키텍처를 설계하고 운영했습니다.</p>
+        <p>또한 <strong>SendBird</strong> 기반 채팅 시스템 구축과 <strong>AWS ECS 및 EKS</strong> 환경에서 컨테이너 기반 서비스를 운영했으며, 우리은행 위비톡(500만 사용자)과 DearU Lysn(190만 사용자) 등 <strong>대규모 서비스 개발 경험</strong>을 보유하고 있습니다.</p>
+        <p>최근 커머스 플랫폼(노베라샵) 개발을 통해 결제, 정산, 물류 연동 등 비즈니스 중심 시스템을 설계하고 운영한 경험이 있습니다.</p>
+      </div>
+    </header>
+
+    <!-- Career -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">경력</h2>
+        <span class="section-meta">10년 2개월</span>
+      </div>
+
+      <!-- Novera -->
+      <article class="company">
+        <div class="company-header">
+          <div>
+            <div class="company-name">Novera <span style="color: var(--text-soft); font-weight: 500; font-size: 0.95rem;">(다날 자회사)</span></div>
+            <div class="company-meta">
+              <span class="badge">정규직</span>
+              <span class="badge">과장 / 팀장</span>
+            </div>
+          </div>
+          <div class="company-period">2020.08 - 재직중 · 5년 10개월</div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">노베라샵 개발 및 운영</h3>
+          <p class="project-period">2025.08 - 2026.05 · 과장 · 팀장</p>
+          <ul class="project-points">
+            <li class="highlight">백엔드 개발 총괄 및 팀 리딩 (Team Lead)</li>
+            <li><strong>결제 시스템</strong>: Danal PG 연동을 통한 신용카드, 네이버페이, 카카오페이, 페이코 등 멀티 간편결제 시스템 구축</li>
+            <li><strong>재고 정합성</strong>: JPA Pessimistic Lock 기반 동시 주문 처리 시 재고 차감 경쟁 상태 방어</li>
+            <li><strong>물류 연동</strong>: 스마트트랙 API 연동으로 실시간 택배 배송 상태 추적 및 주문 자동화 프로세스 구현</li>
+            <li><strong>정산 시스템</strong>: Spring Scheduler 기반 월별 판매자 정산 자동화 및 Apache POI 기반 정산서 엑셀 다운로드 구현</li>
+            <li><strong>보안 및 권한</strong>: 판매자/관리자 역할 분리 및 쿼리 레벨의 접근 제어로 멀티 테넌시 보안 강화</li>
+            <li><strong>CI/CD & 인프라</strong>: GitHub Actions, ECR, CodeDeploy를 연동한 ECS Task 기반 무중단 배포 환경 구축 및 운영</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Java</span><span class="tech">Spring Boot</span><span class="tech">JPA</span><span class="tech">JdbcTemplate</span><span class="tech">MySQL</span><span class="tech">Redis</span><span class="tech">Apache POI</span><span class="tech">GitHub Actions</span><span class="tech">AWS ECS</span><span class="tech">AWS ECR</span><span class="tech">AWS CodeDeploy</span><span class="tech">AWS Amplify</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">패밀리타운 - 프라이빗 메신저 플랫폼 백엔드 개발 및 운영</h3>
+          <p class="project-period">2023.03 - 2026.02 · 과장 · 팀장</p>
+          <ul class="project-points">
+            <li>비밀리 채팅 서비스 기반 <strong>MSA 도입</strong></li>
+            <li><strong>메신저 플랫폼 아키텍처 설계</strong>: Kafka 기반 Event Driven Architecture 설계 및 운영 (서비스 간 비동기 이벤트 기반 통신)</li>
+            <li class="highlight"><strong>인프라 비용 최적화</strong>: AWS ECS Capacity Provider 설계를 통해 Spot 인스턴스 활용으로 인프라 비용 약 <strong>40% 절감</strong></li>
+            <li><strong>채팅 시스템 고도화</strong>: SendBird SDK 연동, 채팅 인증 및 메시지 삭제 비동기 처리 구조 개선</li>
+            <li><strong>알림 시스템 개선</strong>: AWS SNS 활용 디바이스 단위 Push 알림 관리 기능 구현 및 친구 상태 업데이트 알림</li>
+            <li><strong>푸시히스토리 기능 성능 개선</strong>: DynamoDB 조회 성능 개선 (Scan 기반 조회 → Query 기반 조회)</li>
+            <li>유지보수: Sentry 이슈대응</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Kafka</span><span class="tech">SendBird SDK</span><span class="tech">AWS SNS</span><span class="tech">DynamoDB</span><span class="tech">RDS</span><span class="tech">MSA</span><span class="tech">AWS</span><span class="tech">AWS ECS</span><span class="tech">AWS Amplify</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">세라잼 - B2B 메신저 플랫폼 개발</h3>
+          <p class="project-period">2025.10 - 2026.02 · 과장 · 팀장</p>
+          <ul class="project-points">
+            <li>세라잼 기업용 메신저 플랫폼 개발</li>
+            <li>조직도 기반 사용자 관리 API 개발</li>
+            <li>Broadcast 공지 발송 시스템 개발</li>
+            <li>관리자 계정 관리 기능 개발</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Danal -->
+      <article class="company">
+        <div class="company-header">
+          <div>
+            <div class="company-name">Danal <span style="color: var(--text-soft); font-weight: 500; font-size: 0.95rem;">(다날)</span></div>
+            <div class="company-meta">
+              <span class="badge">정규직</span>
+              <span class="badge">대리 / 팀원</span>
+            </div>
+          </div>
+          <div class="company-period">2020.02 - 2020.08 · 7개월</div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">비밀리 - 메신저 서비스 백엔드 개발</h3>
+          <p class="project-period">2022.02 - 2022.08 · 대리 · 팀원</p>
+          <ul class="project-points">
+            <li><strong>AWS EKS 기반 Kubernetes 환경 구축 및 운영</strong></li>
+            <li>메시지 조회 / 친구 / 그룹 / 프로필 API 개발</li>
+            <li>SNS 기반 Push 알림 서비스 개발</li>
+            <li>JWT 기반 인증 서버 개발</li>
+            <li><strong>Django Celery 기반 비동기 처리 시스템 구축</strong> (친구 요청 및 프로필 변경 비동기 처리)</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Python</span><span class="tech">Django</span><span class="tech">Spring Boot</span><span class="tech">Redis</span><span class="tech">AmazonMQ</span><span class="tech">Docker</span><span class="tech">AWS EKS</span><span class="tech">JWT</span><span class="tech">Django Celery</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- DearU -->
+      <article class="company">
+        <div class="company-header">
+          <div>
+            <div class="company-name">DearU <span style="color: var(--text-soft); font-weight: 500; font-size: 0.95rem;">(브라이니클 사업명 변경)</span></div>
+            <div class="company-meta">
+              <span class="badge">정규직</span>
+              <span class="badge">대리 / 팀원</span>
+            </div>
+          </div>
+          <div class="company-period">2019.01 - 2020.02 · 1년 2개월</div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">Lysn - 팬 커뮤니티 서비스 백엔드 개발</h3>
+          <p class="project-period">2018.12 - 2020.02 · 대리 · 팀원</p>
+          <ul class="project-points">
+            <li class="highlight"><strong>오픈 채팅 서비스 개발</strong> (RabbitMQ / Mosquitto 기반 채팅 시스템 개발)</li>
+            <li>스타 채팅 및 오픈 채팅 기능 구현</li>
+            <li>채팅방 초대 페이지 개발</li>
+            <li>채팅 데이터 안정성 개선</li>
+            <li><strong>팬클럽 권한 기반 커뮤니티 시스템 개발</strong></li>
+            <li>팬클럽 등급 기반 권한 관리 기능 구현</li>
+            <li>커뮤니티 채팅 기능 개발</li>
+            <li><strong>구독형 인앱 결제 시스템 개발</strong></li>
+            <li>Lysn 스토어 결제 및 정산 시스템 개발</li>
+            <li>구독형 상품 자동 결제 프로세스 구현</li>
+            <li>상품 등록 / 구매 / 반품 관리 기능 개발</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Python</span><span class="tech">Django</span><span class="tech">Redis</span><span class="tech">RabbitMQ</span><span class="tech">Mosquitto</span><span class="tech">AWS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brainycle -->
+      <article class="company">
+        <div class="company-header">
+          <div>
+            <div class="company-name">브라이니클</div>
+            <div class="company-meta">
+              <span class="badge">정규직</span>
+              <span class="badge">대리 / 팀원</span>
+            </div>
+          </div>
+          <div class="company-period">2016.04 - 2019.01 · 2년 10개월</div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">우리은행 (위비톡), 돈톡 메신저 플랫폼 서버 유지보수</h3>
+          <p class="project-period">2017.04 - 2018.12 · 대리 · 팀원</p>
+          <ul class="project-points">
+            <li class="highlight"><strong>위비톡 메신저 서비스 백엔드 개발 및 운영</strong> (가입자 약 500만 명 규모)</li>
+            <li>Python / Redis 기반 채팅 및 Push 시스템 개발</li>
+            <li>Django / Nginx / uWSGI 기반 API 서버 개발</li>
+            <li>MQTT 기반 메신저 시스템 개발</li>
+            <li>관리자 웹사이트 및 통계 시스템 개발</li>
+            <li>문의하기 및 메일 발송 시스템 개발</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Python</span><span class="tech">Redis</span><span class="tech">Django</span><span class="tech">Nginx</span><span class="tech">uWSGI</span><span class="tech">MQTT</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">말랑말랑 톡 카페 메신저</h3>
+          <p class="project-period">2016.10 - 2017.09 · 사원 · 팀원</p>
+          <ul class="project-points">
+            <li>메신저 애플리케이션 서버 개발</li>
+            <li>채팅 및 푸시 프로세스 개발 (Python, Redis)</li>
+            <li>애플리케이션 API 서버 개발 (Django, Nginx, uWSGI)</li>
+            <li>관리자 admin 페이지 개발 (Django, JavaScript, MySQL)</li>
+            <li>메시지 타입 별 통계 (펑 메시지, 타임캡슐, 일반, 귓속말)</li>
+            <li>대화방별 메시지 통계 (1:1 대화, 그룹 대화, 나와의 대화)</li>
+            <li>앱 내 Static Web Page 개발 및 AWS 기반 CDN 운영 관리 (HTML, JavaScript, CSS, AWS S3, AWS CloudFront)</li>
+            <li>문의하기 웹서비스 PHP → Python 마이그레이션 (Django, JavaScript, MySQL)</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <h3 class="project-title">돈톡 메신저 플랫폼 서버 유지보수</h3>
+          <p class="project-period">2016.04 - 2017.03 · 사원 · 팀원</p>
+          <ul class="project-points">
+            <li>메신저 어플리케이션 유지보수</li>
+            <li>admin 관리자 웹 사이트 개발</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">학력</h2>
+      </div>
+
+      <div class="education-item">
+        <div>
+          <div class="education-school">동의대학교</div>
+          <div class="education-major">컴퓨터공학과 · 졸업</div>
+        </div>
+        <div class="education-period">2015.03 - 2016.03</div>
+      </div>
+
+      <div class="education-item">
+        <div>
+          <div class="education-school">동명대학교</div>
+          <div class="education-major">정보보호학과 · 중퇴</div>
+        </div>
+        <div class="education-period">2008.02 - 2011.02</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">스킬</h2>
+      </div>
+
+      <div class="skills">
+        <span class="skill">Java</span>
+        <span class="skill">Spring Boot</span>
+        <span class="skill">JPA</span>
+        <span class="skill">Python</span>
+        <span class="skill">Django</span>
+        <span class="skill">Flask</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">Redis</span>
+        <span class="skill">RabbitMQ</span>
+        <span class="skill">AWS</span>
+        <span class="skill">Docker</span>
+        <span class="skill">Nginx</span>
+        <span class="skill">Linux</span>
+        <span class="skill">Git</span>
+        <span class="skill">Jenkins</span>
+        <span class="skill">JIRA</span>
+        <span class="skill">Confluence</span>
+        <span class="skill">Slack</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 김도훈 · Backend Engineer</p>
+    </footer>
+
+  </div>
+</body>
+</html>
